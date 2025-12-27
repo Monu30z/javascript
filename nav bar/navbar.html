@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            
+        }
+
+        html{
+            font-size: 12pt;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        nav{
+            height: 60px;
+            background-color: rgb(41, 40, 40);
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        .links-container{
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+          
+        }
+
+        nav a{
+            height: 100%;
+            text-decoration: none;
+            color: white;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            
+            
+            &:hover{
+                background-color: #0059ff;
+            }
+        }
+
+        nav img{
+            fill: var(#030303);
+        }
+        #sidebar-active{
+            display: none;
+        }
+
+        .open-sidebar-button, .close-sidebar-button{
+            padding: 0 20px;
+            display: none;
+        }
+       @media(max-width:450px){
+        .links-container{
+            /* display: none; */
+            flex-direction: column;
+            align-items: flex-start;
+
+            position: fixed;
+            top: 0;
+            right: -100%;
+            z-index: 10;
+            width: 300px;
+            background-color: #292727;
+            box-shadow: -5px 0 5px rgba(0, 0, 0, 0.25);
+            transition: .73s ease-out;
+        }
+
+        nav a{
+            box-sizing: border-box;
+            height: auto;
+            width: 100%;
+            padding: 30px 20px;
+            justify-content: flex-start;
+        }
+
+         .open-sidebar-button, .close-sidebar-button{
+            padding: 20px;
+            display: block;
+        }
+        #sidebar-active:checked ~ .links-container{
+            /* display: flex; */
+            right: 0;
+        }
+
+        #sidebar-active:checked ~ #overlay{
+            /* background-color: red; */
+            height: 100%;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 9;
+        }
+       }
+
+     
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <input type="checkbox" name="" id="sidebar-active">
+            <label for="sidebar-active" class="open-sidebar-button">
+                <img src="menu_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png" alt="">
+            </label>
+            <label for="sidebar-active" id="overlay"></label>
+            <div class="links-container">
+                <label for="sidebar-active" class="close-sidebar-button">
+                    <img src="close_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="">
+                </label>
+
+                <a href="">home</a>
+                <a href="">product</a>
+                <a href="">service</a>
+                <a href="">about</a>
+                <a href="">contect</a>
+            </div>
+        
+               
+            
+        </nav>
+    </header>
+</body>
+</html>

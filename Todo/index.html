@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .container{
+            width: 100%;
+            min-height: 100vh;
+            background: linear-gradient(135deg,#153677,#5e085f);
+            padding: 10px;
+
+        }
+        .todo-app{
+            width: 100%;
+            max-width: 540px;
+            background: #fff;
+            margin: 100px auto 20px;
+            padding: 40px 30px 70px;
+            border-radius: 10px;
+            display: flex;
+            /* text-align: center; */
+            /* justify-content: center; */
+            flex-direction: column;
+        }
+        .todo-app h2{
+            color: #002765;
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            font-weight: 900;
+        }
+
+        .todo-app h2 img{
+            width: 30px;
+            margin-left: 20px;
+        
+        }
+        .row{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #edeef0;
+            border-radius: 30px;
+            padding-left: 20px;
+            /* margin-bottom: 25px; */
+            /* padding: 15px 27px; */
+        }
+        input{
+            flex: 1;
+            border: none;
+            outline: none;
+            background: transparent;
+            font-weight: 900;
+            padding: 10px;
+            font-size: x-large;
+           
+        }
+
+        button{
+            border: none;
+            outline: none;
+          padding: 16px 50px;
+          background: orangered;
+          font-size: 1em;
+          cursor: pointer;
+          color: #fff;
+          border-radius: 30px;
+        }
+        h2 p{
+            margin-left: 5px;
+        }
+
+        ul li{
+            list-style: none;
+            font-size: 16px;
+            padding: .9em 2.2em;
+            user-select: none;
+            cursor: pointer
+            ;
+        }
+
+        ul li::before{
+            content: "";
+            position: absolute;
+            height: 1.8em;
+            width: 2.8em;
+            border-radius: 50%;
+            background-image: url();
+            margin-right: 5px;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="todo-app">
+            <h2>To-Do List 
+                <!-- <img src="" alt="image"> -->
+                 <p>😊</p>
+            </h2>
+            <div class="row">
+                <input type="text" name="Add" id="input-box" placeholder="Add your text">
+                <button name = btn>Add</button>
+            </div>
+            <ul id="list-container">
+                <li>Task 1</li>
+                <li>Task 2</li>
+                <li>Task 3</li>
+              
+            </ul>
+           
+        </div>
+
+    </div>
+
+    <script>
+
+        let Add = document.querySelector('button')
+        let input_btn = document.querySelector('input-box')
+        let list = document.querySelector('li')
+        Add.addEventListener("click",()=>{
+            list.innerText = "hello" ;
+        })
+
+    </script>
+</body>
+
+</html>

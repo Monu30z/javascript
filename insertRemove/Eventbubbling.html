@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html,body{
+            height: 100vh;
+            width: 100%;
+            align-items: center;
+            display: grid;
+        }
+        .container{
+            padding: 14px;
+            margin: 14px;
+            background-color: blueviolet;
+        }
+        .childcontainer{
+             padding: 14px;
+            margin: 14px;
+            background-color: rgb(141, 226, 43);
+        }
+        .box{
+             padding: 14px;
+            margin: 14px;
+            background-color: rgb(43, 168, 226);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="childcontainer">
+            <div class="box">
+                box
+            </div>
+        </div>
+    </div>
+    <script>
+        document.querySelector(".container").addEventListener("click",(e)=>{
+            e.stopPropagation();
+            alert("container was clicked");
+        })
+        document.querySelector(".childcontainer").addEventListener("click",(e)=>{
+            e.stopPropagation();
+            alert("childcontainer was clicked");
+        })
+        document.querySelector(".box").addEventListener("click",(e)=>{
+            e.stopPropagation();
+            alert("child was clicked");
+        })
+    </script>
+</body>
+</html>
