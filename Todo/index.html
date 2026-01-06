@@ -12,14 +12,16 @@
             box-sizing: border-box;
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         }
-        .container{
+
+        .container {
             width: 100%;
             min-height: 100vh;
-            background: linear-gradient(135deg,#153677,#5e085f);
+            background: linear-gradient(135deg, #153677, #5e085f);
             padding: 10px;
 
         }
-        .todo-app{
+
+        .todo-app {
             width: 100%;
             max-width: 540px;
             background: #fff;
@@ -31,7 +33,8 @@
             /* justify-content: center; */
             flex-direction: column;
         }
-        .todo-app h2{
+
+        .todo-app h2 {
             color: #002765;
             display: flex;
             align-items: center;
@@ -39,12 +42,13 @@
             font-weight: 900;
         }
 
-        .todo-app h2 img{
+        .todo-app h2 img {
             width: 30px;
             margin-left: 20px;
-        
+
         }
-        .row{
+
+        .row {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -54,7 +58,8 @@
             /* margin-bottom: 25px; */
             /* padding: 15px 27px; */
         }
-        input{
+
+        input {
             flex: 1;
             border: none;
             outline: none;
@@ -62,33 +67,33 @@
             font-weight: 900;
             padding: 10px;
             font-size: x-large;
-           
+
         }
 
-        button{
+        #btn {
             border: none;
             outline: none;
-          padding: 16px 50px;
-          background: orangered;
-          font-size: 1em;
-          cursor: pointer;
-          color: #fff;
-          border-radius: 30px;
+            padding: 16px 50px;
+            background: orangered;
+            font-size: 1em;
+            cursor: pointer;
+            color: #fff;
+            border-radius: 30px;
         }
-        h2 p{
+
+        h2 p {
             margin-left: 5px;
         }
 
-        ul li{
+        ul li {
             list-style: none;
             font-size: 16px;
             padding: .9em 2.2em;
             user-select: none;
-            cursor: pointer
-            ;
+            cursor: pointer;
         }
 
-        ul li::before{
+        ul li::before {
             content: "";
             position: absolute;
             height: 1.8em;
@@ -98,38 +103,79 @@
             margin-right: 5px;
             position: relative;
         }
+
+        #list-container {
+            padding: 20px 20px;
+        }
+
+        li {
+            padding: 10px 20px;
+            border-bottom: 1px solid black;
+            text-transform: capitalize;
+            font-family: ui-serif;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        li button{
+            padding: 5px 10px;
+            border: 1px solid rgb(128, 124, 124);
+            color: black;
+            background-color: coral;
+            border-radius: 10px;
+
+            &:hover{
+                background-color: rgb(255, 19, 19);
+            }
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
         <div class="todo-app">
-            <h2>To-Do List 
+            <h2>To-Do List
                 <!-- <img src="" alt="image"> -->
-                 <p>😊</p>
+                <p>😊</p>
             </h2>
             <div class="row">
                 <input type="text" name="Add" id="input-box" placeholder="Add your text">
-                <button name = btn>Add</button>
+                <button name=btn id="btn">Add</button>
             </div>
-            <ul id="list-container">
-                <li>Task 1</li>
-                <li>Task 2</li>
-                <li>Task 3</li>
-              
-            </ul>
-           
+            <ol id="list-container">
+
+            </ol>
+
         </div>
 
     </div>
 
     <script>
+        const fruits = [];
 
-        let Add = document.querySelector('button')
-        let input_btn = document.querySelector('input-box')
-        let list = document.querySelector('li')
-        Add.addEventListener("click",()=>{
-            list.innerText = "hello" ;
+
+        const input = document.getElementById("input-box");
+        const btn = document.getElementById("btn");
+        const list = document.getElementById("list-container")
+        function read() {
+            let text = ''
+
+            for (let i = 0; i < fruits.length; i++) {
+                text += `<li> ${fruits[i]} <button OnClick="deleteitem()">delete</button></li>`;
+            }
+            list.innerHTML = `${text}`
+        }
+        function deleteitem() {
+            fruits.shift();
+            read();
+
+        }
+        btn.addEventListener("click", function () {
+            if (input.value.trim() === '') return;
+
+            fruits.unshift(input.value);
+            input.value = '';
+            read()
         })
 
     </script>
